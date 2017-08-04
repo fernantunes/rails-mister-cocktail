@@ -1,0 +1,38 @@
+
+<h1>Cocktails</h1>
+
+<!-- <div class="row">
+    <div class="col-xs-12 col-sm-4">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+          <div class="card-description">
+            <h2></h2>
+          </div>
+        <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+        <a class="card-link" href="#" ></a>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+
+    </div>
+    <div class="col-xs-12 col-sm-4">
+
+    </div>
+</div> -->
+
+
+<table>
+  <tbody>
+    <% @cocktails.each do |cocktail| %>
+      <tr>
+        <td><%= cocktail.name %></td>
+        <td><%= link_to 'Show', cocktail_path(cocktail) %></td>
+        <td><%= link_to 'Edit', edit_cocktail_path(cocktail) %></td>
+        <td><%= link_to 'Destroy', cocktail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cocktail', new_cocktail_path %>

@@ -1,0 +1,17 @@
+<h1><%= @cocktail.name %></h1>
+
+<table>
+  <tbody>
+    <% @doses.each do |dose| %>
+      <tr>
+        <td><%= dose.name %></td>
+        <td><%= dose.description %></td>
+        <td><%= dose.amount %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dose', new_dose_path %>
