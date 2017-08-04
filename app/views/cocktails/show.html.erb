@@ -1,22 +1,28 @@
-<h1><%= @cocktail.name %>/h1>
+<div class="container">
+  <div align="center">
+    <h1><%= @cocktail.name %></h1>
+  </div>
+  <div class="row" align="center">
+    <div class="col-md-8">
+      <div class="row">
+        <img src="<%= cl_image_path @cocktail.photo %>" alt="<%= @cocktail.name %>">
+      </div>
+      <div class="row">
+        <%= link_to '', edit_cocktail_path(@cocktail), class: "fa fa-pencil" %>
 
+        <%= link_to '', @cocktail, method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-trash" %>
+        <%= link_to '', cocktails_path, class: "fa fa-glass" %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <% @cocktail.doses.each do |dose| %>
+        <h3><%= dose.ingredient.name %></h3>
+        <p><%= dose.description %></p>
+        <p><%= dose.amount %></p>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-<table>
-  <tbody>
-    <% @cocktail.doses.each do |dose| %>
-      <tr>
-        <td><%= dose.ingredient.name %></td>
-        <td><%= dose.description %></td>
-        <td><%= dose.amount %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
 <br>
-
-<%= link_to 'New Dose', new_cocktail_dose_path(@cocktail) %>
-
-
-<%= link_to 'Edit', edit_cocktail_path(@cocktail) %> |
-<%= link_to 'Back', cocktails_path %>
